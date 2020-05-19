@@ -15,10 +15,11 @@ var app = express();
 var mongoose = require('mongoose');
 //var mongoDB = 'mongodb+srv://shawon:goal02@cluster0-wyw86.mongodb.net/local_library?retryWrites=true&w=majority';
 
-mongoose.connect(mongoDB, { useNewUrlParser: true });
 // Set up mongoose connection
 var dev_db_url = 'mongodb+srv://shawon:goal02@cluster0-wyw86.mongodb.net/local_library?retryWrites=true&w=majority';
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
+mongoose.connect(mongoDB, { useNewUrlParser: true });
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
